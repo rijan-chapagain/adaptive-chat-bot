@@ -1,13 +1,12 @@
 {
-    "name": "adaptivebot",
+    "name": "chat-bot-ai",
     "version": "1.0.0",
-    "description": "Bot Builder v4 echo bot sample",
-    "author": "Microsoft",
-    "license": "MIT",
-    "main": "index.js",
+    "description": "Chat-bot-ai using ms bot framework",
+    "author": "Rijan",
+    "main": "index.tsx",
     "scripts": {
-        "start": "node ./index.js",
-        "watch": "nodemon ./index.js",
+        "start": "node ./index.tsx",
+        "watch": "nodemon ./index.tsx",
         "lint": "eslint .",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
