@@ -1,0 +1,8 @@
+> Language generation definition.
+> See https://aka.ms/language-generation to learn more.
+
+# PickADialog
+- Hello there! Welcome to Headstart a recuriting web app, Perth WA.\n\nChoose one of the following option..\n\nNOTE: You can say "cancel" anytime.
+
+# RunningSampleReadBack
+- # Running ${turn.userChoice} Portal
