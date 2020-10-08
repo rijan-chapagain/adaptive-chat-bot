@@ -5,32 +5,37 @@ Chat Bot using Bot Framework
 ## Prerequisites
 
 - [Node.js](https://nodejs.org) version 10.14 or higher
+- [Yarn pkg](https://yarnpkg.com/)
+
 
     ```bash
     # determine node version
     node --version
+    # determine yarn version
+    yarn --version 
     ```
 
 ## Installation
 
 - Clone the repo using
     ```bash
-        git clone "repo link"
+        git clone https://github.com/rijan-chapagain/adaptive-chat-bot.git
     ```
     ```bash
-    cd folder
+    # Open folder that contains package.json
+    cd adaptive-chat-bot
     ```
 
 - Install modules
 
     ```bash
-    yarn
+    yarn || npm install
     ```
 
 - Start the bot
 
     ```bash
-    yarn start
+    yarn start || npm start
     ```
 
 ## Testing the bot using Bot Framework Emulator
