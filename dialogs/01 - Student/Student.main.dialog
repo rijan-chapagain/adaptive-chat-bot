@@ -1,0 +1,26 @@
+{
+    "$schema": "../../app.schema",
+    "$kind": "Microsoft.AdaptiveDialog",
+    "generator": "student.lg",
+    "autoEndDialog": "false",
+    "triggers": [
+        {
+            "$kind": "Microsoft.OnBeginDialog",
+            "alwaysPrompt": true,
+            "actions": [
+                {
+                    "$kind":"Microsoft.TextInput",
+                    "prompt": "${ModeOfTransportPrompt()}",
+                    "property": "user.userProfile.Transport"
+                },
+                {
+                    "$kind": "Microsoft.SendActivity",
+                    "activity": "${FinalUserProfileReadOut()}"
+                },
+                {
+                    "$kind": "Microsoft.RepeatDialog"
+                }
+            ]
+        }
+    ]
+}
