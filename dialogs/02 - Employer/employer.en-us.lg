@@ -1,0 +1,170 @@
+> Language generation definition.
+> See https://aka.ms/language-generation to learn more.
+
+> All cards can be defined and managed through .lg files.
+> All cards use the structured LG notation.
+> Multi-line text are enclosed in ```
+> Multi-line text can include inline expressions enclosed in ${expression}.
+> ${TemplateName()} is how you can refer to another languge genration template in multi-line resolution.
+
+# HelpText
+- I'm a card bot. I can render different types of cards.
+
+# CardChoice
+- Select one of the cards below or type what you like to know about employer.
+
+# HeroCard
+[HeroCard   
+    title = BHP
+    subtitle = One of the top mining company 
+    text = BHP, formerly known as BHP Billiton, is the trading entity of BHP Group Limited and BHP Group plc, an Anglo-Australian multinational mining, metals and petroleum dual-listed public company headquartered in Melbourne, Victoria, Australia.
+    image = https://th.bing.com/th/id/OIP.do-n1ubXCkR9Y62q-o-CDQHaEK?w=305&h=180&c=7&o=5&dpr=1.25&pid=1.7
+    buttons =   more cards
+]
+
+# ThumbnailCard
+[HeroCard
+    title = Star Rating Card
+    subtitle = Average Rating in Australia 2018
+    text = Based on ReviewTrackers’ data, 63.6% of consumers check reviews on Google before visiting a business —more than any other review site.
+    image = https://www.reviewtrackers.com/wp-content/uploads/Average-Star-Rating-by-Industry-800x448.jpg
+    buttons = Show more cards
+]
+
+# SigninCard
+[SigninCard
+    text = Click the link below to Sign-in to Headstart careers page \n\nhttps://headstart.careers/signup
+]
+
+# AnimationCard
+[AnimationCard
+    title = Microsoft Bot Framework
+    subtitle = Animation Card
+    image = https://docs.microsoft.com/en-us/bot-framework/media/how-it-works/architecture-resize.png
+    media = http://i.giphy.com/Ki55RUbOV5njy.gif
+]
+
+# VideoCard
+[VideoCard
+    title = Tips to hire
+    subtitle = Youtube video Tips to hire by valuentertainment
+    text = Hire slow fire fast
+    image = https://i.ytimg.com/an_webp/aH4yDBqgqOA/mqdefault_6s.webp?du=3000&sqp=CICI-vsF&rs=AOn4CLBlJ7b113tbNHxAf2lpZLSfMgJPmA
+    media = https://www.youtube.com/watch?v=aH4yDBqgqOA
+    buttons = Show more cards
+]
+
+# AudioCard
+[AudioCard
+    title = I am your father
+    subtitle = Star Wars: Episode V - The Empire Strikes Back
+    text = The Empire Strikes Back (also known as Star Wars: Episode V – The Empire Strikes Back)
+    image = https://upload.wikimedia.org/wikipedia/en/3/3c/SW_-_Empire_Strikes_Back.jpg
+    media = http://www.wavlist.com/movies/004/father.wav
+    buttons = Read More
+]
+
+# AdaptiveCard
+[Activity
+    Attachments = ${json(AdaptiveCard.Definition())}
+]
+
+# EmployerName
+- BHP
+- BANKWEST 
+- Google
+- Addapter
+- Apple
+- Microsoft
+
+# AttachmentLayoutType
+- carousel
+- list
+
+# AllCards
+[Activity
+    Attachments = ${HeroCard()} | ${ThumbnailCard()} | ${SigninCard()} | ${AnimationCard()} | ${VideoCard()} | ${AudioCard()} | ${json(AdaptiveCard.Definition())}
+    AttachmentLayout = ${AttachmentLayoutType()}
+]
+
+> You can either do an inline definition of card using multi-line ```
+> You can also define the card via a json file and import it here using - ${json(fromFile('./card.json'))}
+# AdaptiveCard.Definition
+- ```
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.0",
+  "type": "AdaptiveCard",
+  "speak": "This employer is hiring graduate student for internship.",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Employers",
+      "weight": "bolder",
+      "isSubtle": false
+    },
+    {
+      "type": "TextBlock",
+      "text": "${EmployerName()}",
+      "separator": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Hiring graduate student for internship.",
+      "weight": "bolder",
+      "spacing": "medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Job posted on Fri, October 1",
+      "weight": "bolder",
+      "size": "medium",
+      "spacing": "none"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Job Closes on Thu, December 29",
+      "weight": "bolder",
+      "size": "medium",
+      "spacing": "none"
+    },
+    {
+      "type": "TextBlock",
+      "text": "The required skills are matched to your skills.",
+      "weight": "bolder",
+      "spacing": "medium"
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "medium",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "1",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Total hiring",
+              "size": "medium",
+              "isSubtle": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": 1,
+          "items": [
+            {
+              "type": "TextBlock",
+              "horizontalAlignment": "right",
+              "text": "25 Cs Grad students",
+              "size": "medium",
+              "weight": "bolder"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
