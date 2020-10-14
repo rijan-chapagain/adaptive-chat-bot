@@ -1,62 +1,197 @@
-> Language Generation definition file. 
-> See https://aka.ms/language-generation to learn more
+> Language generation definition.
+> See https://aka.ms/language-generation to learn more.
 
-# AskForName
-- Please enter your name.
+> All cards can be defined and managed through .lg files.
+> All cards use the structured LG notation.
+> Multi-line text are enclosed in ```
+> Multi-line text can include inline expressions enclosed in ${expression}.
+> ${TemplateName()} is how you can refer to another languge genration template in multi-line resolution.
 
-# AckName
-- Thanks, ${CapitalizeName(user.userProfile.Name)}.
+# HelpText
+- ***Help Text: Simply pick one of the cards below to view details about it.***
 
-# CapitalizeName(param)
-- ${toUpper(substring(param, 0, 1))}${if((count(param) != 1), substring(param, 1), '')}
+# CardChoice
+- Select one of the cards below or type what you like to know about students.
 
-# AgeConfirmPrompt
-- Would you like to give your age?
-
-# AskForAge
-- what is your age?
-
-# AskForAge.invalid
-- Sorry, '${this.value}'' does not work. I'm looking for a value between 1-150. ${AskForAge()}
-- Sorry, that does not work. Your age must be greater than 0 and less than 150. ${AskForAge()}
-
-# AskForAge.unRecognized
-- Sorry, I do not recognized '${this.value}'. ${AskForAge()}
-
-# NoAge
-- No age given.
-
-# UserAgeReadBack 
-- IF: ${user.userProfile.Age == null}
-   - And, No age given.
-- ELSE: 
-   - And, I have your age as ${user.userProfile.Age}.
-   - You are ${user.userProfile.Age} years old.
-
-# ConfirmPrompt
-- Is this ok?
-
-> This template uses inline expressions. Expressions are defined using the common expression language. 
-> See https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/common-expression-language to learn more.
-# FinalUserProfileReadOut
-- IF: ${user.userProfile.Transport == "Interesting Facts"}
-    - Total Uni Graduate students of perth (2020 S1) : 11,500!
-- ELSEIF: ${user.userProfile.Transport == " Unemployed Grad Students "}
-    - Currently Unemployed Grad Students number in perth is : 6,500! \n\nAmong that, 4,000 of them are connected with Headstarts 
-- ELSEIF: ${user.userProfile.Transport == "Employed Grad Students"}
-    - Currently Employed Grad Students number in perth is : 3,500!!
-- ELSEIF: ${user.userProfile.Transport == "Common Skills"}
-    - Common skills among students associated with headstarts are: TeamWork, continious learning, Problem solving!
-- ELSE:
-    - Thank you for visiting student portal!
-
-> Structured template defintion.
-# ModeOfTransportPrompt
-[Activity
-    Text = ${ModeOfTransportPrompt.Text()}
-    SuggestedActions = Interesting Facts | Unemployed Grad Students | Employed Grad Students | Common Skills | Others
+# HeroCard
+[HeroCard   
+    title = BHP
+    subtitle = One of the top mining company 
+    text = BHP, formerly known as BHP Billiton, is the trading entity of BHP Group Limited and BHP Group plc, an Anglo-Australian multinational mining, metals and petroleum dual-listed public company headquartered in Melbourne, Victoria, Australia.
+    image = https://th.bing.com/th/id/OIP.do-n1ubXCkR9Y62q-o-CDQHaEK?w=305&h=180&c=7&o=5&dpr=1.25&pid=1.7
+    buttons = more cards
 ]
 
-# ModeOfTransportPrompt.Text
-- Is there anything I can help you to find about students?
-- What would you like to know about students?
+# Company
+[HeroCard   
+    title = Companies Information
+    subtitle = Here is a comparision of top companies in Australia 2018 and 2008 
+    text = The big banks still dominating and BHP Billiton remaining the largest company. Many of these companies are dinosaurs in that they were created in the late 1800’s and early 1900’s. 
+    image = https://milfordasset.com/wp-content/uploads/2018/01/Biggest-Australian-companies-2018-vs-2008-2.jpg
+    buttons = more cards
+]
+
+
+# ApplyJob
+[HeroCard
+    title = Want to Apply Job?
+    subtitle = To Apply for job you need to login and verify your email.
+    text = Click the link to login: \n\nhttps://headstart.careers/login
+    image = https://i.ytimg.com/vi/rhDOYzhK4Ks/maxresdefault.jpg 
+]
+
+# SigninCard
+[SigninCard
+    text = Click the link below to Sign-up to Headstart careers page \n\nhttps://headstart.careers/signup
+]
+
+# LoginCard
+[SigninCard
+    text = Click the link below to Login to Headstart careers page \n\nhttps://headstart.careers/login
+]
+
+# AnimationCard
+[AnimationCard
+    title = Microsoft Bot Framework
+    subtitle = Animation Card
+    image = https://docs.microsoft.com/en-us/bot-framework/media/how-it-works/architecture-resize.png
+    media = http://i.giphy.com/Ki55RUbOV5njy.gif
+]
+
+# VideoCard
+[VideoCard
+    title = Tips to Enhance Employability
+    subtitle = Youtube video Tips to improve Employability by Lesley.
+    text = Hire slow fire fast
+    image = https://i.ytimg.com/an_webp/aH4yDBqgqOA/mqdefault_6s.webp?du=3000&sqp=CICI-vsF&rs=AOn4CLBlJ7b113tbNHxAf2lpZLSfMgJPmA
+    media = https://www.youtube.com/watch?v=poV_Dn8JhWQ
+    media = https://www.youtube.com/watch?v=c3N2iHxOsLs
+    buttons = Show more cards
+]
+
+# EmployVideo
+[VideoCard
+    title = Tips to Enhance Employability
+    subtitle = Youtube video Tips to improve Employability by Lesley.
+    text = Hire slow fire fast
+    image = https://i.ytimg.com/an_webp/aH4yDBqgqOA/mqdefault_6s.webp?du=3000&sqp=CICI-vsF&rs=AOn4CLBlJ7b113tbNHxAf2lpZLSfMgJPmA
+    media = https://www.youtube.com/watch?v=poV_Dn8JhWQ
+    buttons = Show more cards
+]
+
+
+
+# AudioCard
+[AudioCard
+    title = I am your father
+    subtitle = Star Wars: Episode V - The Empire Strikes Back
+    text = The Empire Strikes Back (also known as Star Wars: Episode V – The Empire Strikes Back)
+    image = https://upload.wikimedia.org/wikipedia/en/3/3c/SW_-_Empire_Strikes_Back.jpg
+    media = http://www.wavlist.com/movies/004/father.wav
+    buttons = Read More
+]
+
+# AdaptiveCard
+[Activity
+    Attachments = ${json(AdaptiveCard.Definition())}
+]
+
+# EmployerName
+- BHP
+- BANKWEST 
+- Google
+- Addapter
+- Apple
+- Microsoft
+
+# AttachmentLayoutType
+- carousel
+- list
+
+# AllCards
+[Activity
+    Attachments = ${HeroCard()} | ${ApplyJob()} | ${SigninCard()} | ${LoginCard()} | ${AnimationCard()} | ${VideoCard()} | ${AudioCard()} | ${json(AdaptiveCard.Definition())}
+    AttachmentLayout = ${AttachmentLayoutType()}
+]
+
+> You can either do an inline definition of card using multi-line ```
+> You can also define the card via a json file and import it here using - ${json(fromFile('./card.json'))}
+# AdaptiveCard.Definition
+- ```
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.0",
+  "type": "AdaptiveCard",
+  "speak": "This employer is hiring graduate student for internship.",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Employers",
+      "weight": "bolder",
+      "isSubtle": false
+    },
+    {
+      "type": "TextBlock",
+      "text": "${EmployerName()}",
+      "separator": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Hiring graduate student for internship.",
+      "weight": "bolder",
+      "spacing": "medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Job posted on Fri, October 1",
+      "weight": "bolder",
+      "size": "medium",
+      "spacing": "none"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Job Closes on Thu, December 29",
+      "weight": "bolder",
+      "size": "medium",
+      "spacing": "none"
+    },
+    {
+      "type": "TextBlock",
+      "text": "The required skills are matched to your skills.",
+      "weight": "bolder",
+      "spacing": "medium"
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "medium",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "1",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Total hiring",
+              "size": "medium",
+              "isSubtle": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": 1,
+          "items": [
+            {
+              "type": "TextBlock",
+              "horizontalAlignment": "right",
+              "text": "25 Cs Grad students",
+              "size": "medium",
+              "weight": "bolder"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
