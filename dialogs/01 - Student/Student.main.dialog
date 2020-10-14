@@ -6,16 +6,153 @@
     "triggers": [
         {
             "$kind": "Microsoft.OnBeginDialog",
-            "alwaysPrompt": true,
             "actions": [
                 {
-                    "$kind":"Microsoft.TextInput",
-                    "prompt": "${ModeOfTransportPrompt()}",
-                    "property": "user.userProfile.Transport"
+                    "$kind": "Microsoft.ChoiceInput",
+                    "prompt": "${CardChoice()}",
+                    "property": "turn.cardChoice",
+                    "outputFormat": "value",
+                    "alwaysPrompt": true,
+                    "choices": [
+                        {
+                            "value": "Cancel"
+                        },
+                        {
+                            "value": "All Info"
+                        },
+                        {
+                            "value": "Available Jobs"
+                        },
+                        {
+                            "value": "Apply Job"
+                        },
+                        {
+                            "value": "Sign up"
+                        },
+                        {
+                            "value": "Login"
+                        },
+                        {
+                            "value": "Companies Info"
+                        },
+                        {
+                            "value": "Tips"
+                        },
+                        {
+                            "value": "Improve skills"
+                        },
+                        {
+                            "value": "Help"
+                        }
+                    ]
                 },
                 {
-                    "$kind": "Microsoft.SendActivity",
-                    "activity": "${FinalUserProfileReadOut()}"
+                    "$kind": "Microsoft.SwitchCondition",
+                    "condition": "turn.cardChoice",
+                    "cases": [
+                        {
+                            "value": "Cancel",
+                            "actions": [
+                                {
+                                    "$kind": "Microsoft.SendActivity",
+                                    "activity": "Cancelling.."
+                                },
+                                {
+                                    "$kind": "Microsoft.EndDialog"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "Help",
+                            "actions": [
+                                {
+                                    "$kind": "Microsoft.SendActivity",
+                                    "activity": "${HelpText()}"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "All Info",
+                            "actions": [
+                                {
+                                    "$kind": "Microsoft.SendActivity",
+                                    "activity": "${AllCards()}"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "Companies Info",
+                            "actions": [
+                                {
+                                    "$kind": "Microsoft.SendActivity",
+                                    "activity": "${Company()}"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "Available Jobs",
+                            "actions": [
+                                {
+                                    "$kind": "Microsoft.SendActivity",
+                                    "activity": "${AdaptiveCard()}"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "Apply Job",
+                            "actions": [
+                                {
+                                    "$kind": "Microsoft.SendActivity",
+                                    "activity": "${ApplyJob()}"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "Sign up",
+                            "actions": [
+                                {
+                                    "$kind": "Microsoft.SendActivity",
+                                    "activity": "${SigninCard()}"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "Login",
+                            "actions": [
+                                {
+                                    "$kind": "Microsoft.SendActivity",
+                                    "activity": "${LoginCard()}"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "Tips",
+                            "actions": [
+                                {
+                                    "$kind": "Microsoft.SendActivity",
+                                    "activity": "${VideoCard()}"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "Improve skills",
+                            "actions": [
+                                {
+                                    "$kind": "Microsoft.SendActivity",
+                                    "activity": "${EmployVideo()}"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "Help",
+                            "actions": [
+                                {
+                                    "$kind": "Microsoft.SendActivity",
+                                    "activity": "${HelpText()}"
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     "$kind": "Microsoft.RepeatDialog"
