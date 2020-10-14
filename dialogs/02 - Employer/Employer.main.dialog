@@ -18,10 +18,7 @@
                             "value": "Cancel"
                         },
                         {
-                            "value": "All cards"
-                        },
-                        {
-                            "value": "BHP"
+                            "value": "All Info"
                         },
                         {
                             "value": "Available Jobs"
@@ -30,16 +27,16 @@
                             "value": "Star Rating"
                         },
                         {
-                            "value": "Signin card"
+                            "value": "Sign up"
                         },
                         {
-                            "value": "Animation card"
+                            "value": "Login"
+                        },
+                        {
+                            "value": "BHP"
                         },
                         {
                             "value": "Tips to hire"
-                        },
-                        {
-                            "value": "Audio card"
                         }
                     ]
                 },
@@ -67,10 +64,9 @@
                                     "activity": "${HelpText()}"
                                 }
                             ]
-
                         },
                         {
-                            "value": "All cards",
+                            "value": "All Info",
                             "actions": [
                                 {
                                     "$kind": "Microsoft.SendActivity",
@@ -106,7 +102,7 @@
                             ]
                         },
                         {
-                            "value": "Signin card",
+                            "value": "Sign up",
                             "actions": [
                                 {
                                     "$kind": "Microsoft.SendActivity",
@@ -115,11 +111,11 @@
                             ]
                         },
                         {
-                            "value": "Animation card",
+                            "value": "Login",
                             "actions": [
                                 {
                                     "$kind": "Microsoft.SendActivity",
-                                    "activity": "${AnimationCard()}"
+                                    "activity": "${SigninCard()}"
                                 }
                             ]
                         },
@@ -129,15 +125,6 @@
                                 {
                                     "$kind": "Microsoft.SendActivity",
                                     "activity": "${VideoCard()}"
-                                }
-                            ]
-                        },
-                        {
-                            "value": "Audio card",
-                            "actions": [
-                                {
-                                    "$kind": "Microsoft.SendActivity",
-                                    "activity": "${AudioCard()}"
                                 }
                             ]
                         }
