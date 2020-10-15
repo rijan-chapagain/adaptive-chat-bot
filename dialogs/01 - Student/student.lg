@@ -157,10 +157,18 @@
     },
     {
       "type": "TextBlock",
-      "text": "The required skills are matched to your skills.",
+      "text": "To apply for job you need to login here: https://headstart.careers/login ",
       "weight": "bolder",
       "spacing": "medium"
     },
+    {
+      "type": "TextBlock",
+      "text": "If you are already logged in here is the apply link for this job: https://headstart.careers/dashboard",
+      "weight": "bolder",
+      "spacing": "medium"
+    },
+
+    
     {
       "type": "ColumnSet",
       "spacing": "medium",
