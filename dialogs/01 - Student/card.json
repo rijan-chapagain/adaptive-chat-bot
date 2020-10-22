@@ -1,0 +1,85 @@
+
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.0",
+    "type": "AdaptiveCard",
+    "speak": "This employer is hiring graduate student for internship.",
+    "body": [
+      {
+        "type": "TextBlock",
+        "text": "Employer Details",
+        "weight": "bolder",
+        "isSubtle": false
+      },
+      {
+        "type": "TextBlock",
+        "text": "${EmployerName()}",
+        "separator": true
+      },
+      {
+        "type": "TextBlock",
+        "text": "${JobType()}",
+        "weight": "bolder",
+        "spacing": "medium"
+      },
+      {
+        "type": "TextBlock",
+        "text": "${PostDate()}",
+        "weight": "bolder",
+        "size": "medium",
+        "spacing": "none"
+      },
+      {
+        "type": "TextBlock",
+        "text":  "${CloseDate()}",
+        "weight": "bolder",
+        "size": "medium",
+        "spacing": "none"
+      },
+      {
+        "type": "TextBlock",
+        "text": "To apply for job you need to login here: https://headstart.careers/login ",
+        "weight": "bolder",
+        "spacing": "medium"
+      },
+      {
+        "type": "TextBlock",
+        "text": "If you are already logged in here is the apply link for this job: https://headstart.careers/dashboard",
+        "weight": "bolder",
+        "spacing": "medium"
+      },
+  
+      
+      {
+        "type": "ColumnSet",
+        "spacing": "medium",
+        "columns": [
+          {
+            "type": "Column",
+            "width": "1",
+            "items": [
+              {
+                "type": "TextBlock",
+                "text": "Total hiring",
+                "size": "medium",
+                "isSubtle": true
+              }
+            ]
+          },
+          {
+            "type": "Column",
+            "width": 1,
+            "items": [
+              {
+                "type": "TextBlock",
+                "horizontalAlignment": "right",
+                "text": "${TotalHiring()}",
+                "size": "medium",
+                "weight": "bolder"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
