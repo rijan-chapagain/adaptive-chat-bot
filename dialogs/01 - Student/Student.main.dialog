@@ -21,10 +21,13 @@
                             "value": "All Info"
                         },
                         {
-                            "value": "Available Jobs"
+                            "value": "Available Job"
                         },
                         {
-                            "value": "Apply Job"
+                            "value": "Apply"
+                        },
+                        {
+                            "value": "Job"
                         },
                         {
                             "value": "Sign up"
@@ -90,7 +93,7 @@
                             ]
                         },
                         {
-                            "value": "Available Jobs",
+                            "value": "Available Job",
                             "actions": [
                                 {
                                     "$kind": "Microsoft.SendActivity",
@@ -99,11 +102,20 @@
                             ]
                         },
                         {
-                            "value": "Apply Job",
+                            "value": "Apply",
                             "actions": [
                                 {
                                     "$kind": "Microsoft.SendActivity",
                                     "activity": "${ApplyJob()}"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "Job",
+                            "actions": [
+                                {
+                                    "$kind": "Microsoft.SendActivity",
+                                    "activity": "${Job()}"
                                 }
                             ]
                         },
