@@ -15,13 +15,15 @@
         "url": "https://github.com"
     },
     "dependencies": {
-        "botbuilder": "4.9.2",
-        "botbuilder-dialogs-declarative": "4.9.2-preview",
-        "botbuilder-dialogs-adaptive": "4.9.2-preview",
-        "botbuilder-dialogs": "4.9.2",
         "adaptive-expressions": "4.9.2",
+        "botbuilder": "4.9.2",
+        "botbuilder-dialogs": "4.9.2",
+        "botbuilder-dialogs-adaptive": "4.9.2-preview",
+        "botbuilder-dialogs-declarative": "4.9.2-preview",
         "botbuilder-lg": "4.9.2",
         "dotenv": "^8.2.0",
+        "ludown": "^1.4.0",
+        "luis-apis": "^2.6.2",
         "restify": "~8.4.0"
     },
     "devDependencies": {
