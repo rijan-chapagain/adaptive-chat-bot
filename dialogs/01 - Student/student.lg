@@ -91,18 +91,6 @@
     buttons = Read More
 ]
 
-# AdaptiveCard
-[Activity
-    Attachments = ${json(AdaptiveCard.Definition())}
-]
-
-# EmployerName
-- BHP
-- BANKWEST 
-- Google
-- Addapter
-- Apple
-- Microsoft
 
 # AttachmentLayoutType
 - carousel
@@ -110,96 +98,75 @@
 
 # AllCards
 [Activity
-    Attachments = ${HeroCard()} | ${ApplyJob()} | ${SigninCard()} | ${LoginCard()} | ${AnimationCard()} | ${VideoCard()} | ${AudioCard()} | ${json(AdaptiveCard.Definition())}
+    Attachments = ${HeroCard()} | ${ApplyJob()} | ${SigninCard()} | ${LoginCard()} | ${VideoCard()}}
     AttachmentLayout = ${AttachmentLayoutType()}
 ]
 
-> You can either do an inline definition of card using multi-line ```
-> You can also define the card via a json file and import it here using - ${json(fromFile('./card.json'))}
-# AdaptiveCard.Definition
-- ```
-{
-  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-  "version": "1.0",
-  "type": "AdaptiveCard",
-  "speak": "This employer is hiring graduate student for internship.",
-  "body": [
-    {
-      "type": "TextBlock",
-      "text": "Employers",
-      "weight": "bolder",
-      "isSubtle": false
-    },
-    {
-      "type": "TextBlock",
-      "text": "${EmployerName()}",
-      "separator": true
-    },
-    {
-      "type": "TextBlock",
-      "text": "Hiring graduate student for internship.",
-      "weight": "bolder",
-      "spacing": "medium"
-    },
-    {
-      "type": "TextBlock",
-      "text": "Job posted on Fri, October 1",
-      "weight": "bolder",
-      "size": "medium",
-      "spacing": "none"
-    },
-    {
-      "type": "TextBlock",
-      "text": "Job Closes on Thu, December 29",
-      "weight": "bolder",
-      "size": "medium",
-      "spacing": "none"
-    },
-    {
-      "type": "TextBlock",
-      "text": "To apply for job you need to login here: https://headstart.careers/login ",
-      "weight": "bolder",
-      "spacing": "medium"
-    },
-    {
-      "type": "TextBlock",
-      "text": "If you are already logged in here is the apply link for this job: https://headstart.careers/dashboard",
-      "weight": "bolder",
-      "spacing": "medium"
-    },
+# AdaptiveCard
+[Attachment
+    contenttype = adaptivecard
+    content = ${json(fromFile('./card.json'))}
+]
 
-    
-    {
-      "type": "ColumnSet",
-      "spacing": "medium",
-      "columns": [
-        {
-          "type": "Column",
-          "width": "1",
-          "items": [
-            {
-              "type": "TextBlock",
-              "text": "Total hiring",
-              "size": "medium",
-              "isSubtle": true
-            }
-          ]
-        },
-        {
-          "type": "Column",
-          "width": 1,
-          "items": [
-            {
-              "type": "TextBlock",
-              "horizontalAlignment": "right",
-              "text": "25 Cs Grad students",
-              "size": "medium",
-              "weight": "bolder"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
+# Job
+[Attachment
+    contenttype = adaptivecard
+    content = ${json(fromFile('./jobCard.json'))}
+]
+
+# EmployerName
+- BHP
+- BANKWEST 
+- Google
+- Addapter
+- RAC
+- Microsoft
+- Headstart
+
+# JobType
+- Hiring for internship.
+- Hiring Full time permanent Resident only.
+- Hiring Part time permanent.
+- Hiring fresh graduate only.
+- Hiring for 1 year contract.
+
+# PostDate
+- Job posted on October 1, 2020
+- Job posted on September 25, 2020
+- Job posted on October 9, 2020
+- Job posted on July 25, 2020
+- Job posted on Ausust 31, 2020
+
+# CloseDate
+- Job Closes on October September 31, 2020
+- Job Closes on October November 30, 2020
+- Job Closes on October November 1, 2020
+- Job Closes on October December 1, 2020
+- Job Closes on October December 29, 2020
+
+# TotalHiring
+- 25 Computer Science Graduates
+- 5 Full stack Developer
+- 4 Front-end Developer
+- 10 Programmer interns
+- 1 Data Scientist
+- 1 Computer Engineer
+
+# Location
+- Perth, WA Australia
+- Mandhura, Australia
+- Fremental, Australia
+- Mount Lawley, Australia
+
+# JobList
+- BHP: Hiring 10 Full time permanent Resident only.
+- BANKWEST: Hiring 10 student internship.
+- Google: Hiring 5 fresh graduate only.
+- Addapter: Hiring Computer engineer in 1 yrs contract.
+- RAC: Hiring 20 Volunteers.
+- Microsoft: Hiring 2 computer engineer.
+- Headstart: Hiring 5 Full stack Developer interns.
+
+
+# TotalJobs
+- 7 Jobs with  53 different position
